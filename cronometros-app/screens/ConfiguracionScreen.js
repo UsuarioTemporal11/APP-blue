@@ -42,6 +42,10 @@ export default function ConfiguracionScreen({ bt }) {
   };
 
   const guardarConfiguracion = async () => {
+    if (sinConexion) {
+      Alert.alert('Sin conexión', 'Conecta el Bluetooth antes de guardar la configuración en el equipo.');
+      return;
+    }
     const errorLocal = validarPuntosLocalmente(puntos);
     if (errorLocal) {
       Alert.alert('Revisa la configuración', errorLocal);
@@ -52,19 +56,17 @@ export default function ConfiguracionScreen({ bt }) {
     bt.escribirComando(comando);
   };
 
-  if (sinConexion) {
-    return (
-      <View style={styles.pantalla}>
-        <CabeceraConfig />
-        <EstadoVacio icono="🔗" mensaje={'Conecta el Bluetooth primero desde la pestaña Conexión.'} />
-      </View>
-    );
-  }
-
   return (
-    <View style={styles.pantalla}>
-      <CabeceraConfig />
-      <ScrollView style={styles.contenido}>
+  <View style={styles.pantalla}>
+    <CabeceraConfig />
+    {sinConexion && (
+      <View style={styles.avisoBloqueo}>
+        <Text style={styles.textoAvisoBloqueo}>
+          Bluetooth no conectado. Puedes preparar la configuración, pero necesitarás conectar antes de guardarla en el equipo.
+        </Text>
+      </View>
+    )}
+    <ScrollView style={styles.contenido}>
         {bloqueado && (
           <View style={styles.avisoBloqueo}>
             <Text style={styles.textoAvisoBloqueo}>

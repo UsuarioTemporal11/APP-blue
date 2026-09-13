@@ -15,21 +15,19 @@ export default function ControlScreen({ bt }) {
   const sinConexion = bt.estadoConexion !== 'conectado';
   const estadoInfo = ETIQUETAS_ESTADO[bt.estadoEnsayo] || ETIQUETAS_ESTADO.esperando;
 
-  if (sinConexion) {
-    return (
-      <View style={styles.pantalla}>
-        <CabeceraControl />
-        <EstadoVacio icono="🔗" mensaje={'Conecta el Bluetooth primero desde la pestaña Conexión.'} />
-      </View>
-    );
-  }
 
   return (
     <View style={styles.pantalla}>
       <CabeceraControl />
 
       <BannerError mensaje={bt.ultimoError} onCerrar={bt.limpiarError} />
-
+       {sinConexion && (
+  <View style={styles.avisoBloqueo}>
+    <Text style={styles.textoAvisoBloqueo}>
+      Bluetooth no conectado. Los botones START/RESET no funcionarán hasta conectar.
+    </Text>
+  </View>
+  )}
       <View style={styles.contenido}>
         <View style={[styles.chipEstado, { borderColor: estadoInfo.color }]}>
           <View style={[styles.puntoEstado, { backgroundColor: estadoInfo.color }]} />
