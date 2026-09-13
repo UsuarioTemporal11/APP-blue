@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "Control Cronómetros",
+    "slug": "cronometros-bluetooth-app",
+    "version": "1.0.0",
+    "owner": "REEMPLAZA_CON_TU_USUARIO_EXPO",
+    "android": {
+      "package": "com.reemplaza.cronometrosbluetooth",
+      "permissions": [
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_ADMIN",
+        "android.permission.BLUETOOTH_CONNECT",
+        "android.permission.BLUETOOTH_SCAN"
+      ]
+    },
+    "splash": {
+      "backgroundColor": "#0077b6"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "SE_COMPLETA_AUTOMATICO_CON_EAS_INIT"
+      }
+    },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 34,
+            "targetSdkVersion": 34,
+            "minSdkVersion": 23,
+            "kotlinVersion": "1.9.24"
+          }
+        }
+      ]
+    ]
+  }
+}

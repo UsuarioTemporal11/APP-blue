@@ -1,0 +1,29 @@
+{
+  "name": "cronometros-bluetooth-app",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "doctor": "npx expo-doctor",
+    "fix-deps": "npx expo install --fix"
+  },
+  "dependencies": {
+    "@expo/metro-runtime": "~57.0.15",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "expo": "^57.0.22",
+    "expo-build-properties": "~57.0.17",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-bluetooth-classic": "1.73.0-rc.17",
+    "react-native-web": "^0.21.2"
+  },
+  "resolutions": {
+    "expo-modules-core": "1.11.13"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
+  },
+  "private": true
+}
